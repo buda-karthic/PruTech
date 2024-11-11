@@ -1,0 +1,95 @@
+$primary-color: #1363df;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  font-weight: normal;
+  font-family: "muli", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.row {
+  margin-inline: auto;
+  max-width: 1393px;
+  display: block;
+  width: 100%;
+  padding: 0 15px;
+}
+
+// common styles starts
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+}
+.m-t-auto {
+  margin-top: auto;
+}
+.m-t-24 {
+  margin-top: 24px;
+}
+
+.add-flex {
+  display: flex;
+
+  &.direction-column {
+    flex-direction: column;
+  }
+  &.align-center {
+    align-items: center;
+  }
+  &.justify-center {
+    justify-content: center;
+  }
+  &.flex-1 {
+    > * {
+      flex: 1;
+    }
+  }
+  .flex-1 {
+    flex: 1;
+  }
+
+  &.gap-3 {
+    gap: 32px;
+  }
+}
+.text-center {
+  text-align: center;
+}
+
+header {
+  height: 80px;
+  line-height: 80px;
+  background: $primary-color;
+
+  .header-wrapper {
+    display: flex;
+  }
+  .menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    a {
+      color: #fff;
+      position: relative;
+      display: block;
+      height: 100%;
+      &.active:before {
+        content: "";
+        background-color: #fff;
+        height: 5px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 1px;
+      }
+    }
+  }
+}
