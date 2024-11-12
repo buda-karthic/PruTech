@@ -18,6 +18,7 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
     <header>
       <div class="mobile-menu">
@@ -61,7 +62,43 @@
             <div id="clear" class="clear">Clear all</div>
 
             <aside class="filter-slot">
-              <ul>
+              <div>
+                <label>Categories:</label>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="category-electronics"
+                    value="electronics"
+                  />
+                  <label for="category-electronics">Electronics</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="category-jewelery"
+                    value="jewelery"
+                  />
+                  <label for="category-jewelery">Jewelry</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="category-mens-clothing"
+                    value="men's clothing"
+                  />
+                  <label for="category-mens-clothing">Men's Clothing</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="category-womens-clothing"
+                    value="women's clothing"
+                  />
+                  <label for="category-womens-clothing">Women's Clothing</label>
+                </div>
+              </div>
+
+              <!-- <ul>
                 <li>
                   <h4>Categories</h4>
                   <ul>
@@ -71,7 +108,7 @@
                     <li><a href="#">Women's Clothing</a></li>
                   </ul>
                 </li>
-              </ul>
+              </ul> -->
               <div class="text-center">
                 <button class="btn btn-primary">SEE 17 RESULTS</button>
               </div>
@@ -128,11 +165,17 @@
           <span class="current">Outerwear</span>
         </div>
         <div class="add-flex justify-space-between align-center filter-top">
-          <div class="search result">38 Result</div>
+          <input
+            type="text"
+            id="searchinput"
+            placeholder="Search by products name..."
+          />
+          <div id="searchresult" class="search result">38 Result</div>
           <div class="filter">
-            <select>
-              <option>Sort by price</option>
-              <option>Best Match</option>
+            <select id="sortSelect">
+              <option value="" selected hidden>Sort by Price</option>
+              <option value="asc">Low to High</option>
+              <option value="desc">High to Low</option>
             </select>
           </div>
         </div>
@@ -142,19 +185,28 @@
           <ul>
             <li>
               <h2>Filters</h2>
-              <h4>Categories</h4>
-              <ul>
-                <li><a href="#">Jewellery</a></li>
-                <li><a href="#">Elecronics</a></li>
-                <li><a href="#">Men's Clothing</a></li>
-                <li><a href="#">Women's Clothing</a></li>
-              </ul>
+              <div class="filter">
+                <label for="categoryFilter">Categories:</label>
+                <div class="filter" id="categoryFilter"></div>
+              </div>
             </li>
           </ul>
+          <!-- Price range filter -->
+          <div class="price-range">
+            <h3>Filter by Price</h3>
+            <input
+              type="range"
+              id="applyPriceRange"
+              min="0"
+              value="100"
+              step="1"
+            />
+            <p id="price-range-display">0 - $100</p>
+          </div>
         </aside>
         <div class="product-list-wrapper">
           <ul class="product-list">
-            <li>
+            <!-- <li>
               <div class="image-wrapper">
                 <a href="#"><img src="./images/product-img.png" /></a>
               </div>
@@ -198,15 +250,15 @@
                   <img src="./images/wishlist.svg" />
                 </button>
               </div>
-            </li>
+            </li> -->
           </ul>
+          <div id="shimmer" class="shimmer" style="display: none">
+            Loading...
+          </div>
+          <!-- <button id="loadMoreBtn">Load More</button> -->
           <div class="pagination text-center">
             <ul>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li class="next"><a href="#"></a></li>
+              <!-- Pagination items will be dynamically added here -->
             </ul>
           </div>
         </div>
@@ -283,7 +335,8 @@
         </ul>
       </div>
     </footer>
-    <script>
+    <script src="index.js"></script>
+    <!-- <script>
       const jsonObj = fetch("https://fakestoreapi.com/products")
         .then((res) => res.json())
         .then((res) => console.log(res[0].image))
@@ -310,6 +363,6 @@
         sidebar.classList.remove("active");
         overlay.classList.remove("active");
       });
-    </script>
+    </script> -->
   </body>
 </html>
