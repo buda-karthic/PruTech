@@ -3,15 +3,87 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>Venia category page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <link rel="stylesheet" href="./reset.css" />
-    <link rel="stylesheet" href="https://use.typekit.net/orz1nci.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/wwp5vjv.css" />
     <link rel="stylesheet" href="./stylesheet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,200..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
-      <div class="row header-wrapper">
-        <div class="logo"></div>
+      <div class="mobile-menu">
+        <nav class="navbar">
+          <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <div class="logo">
+            <img src="/images/VeniaLogo.svg" width="102" />
+          </div>
+          <div class="cart">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#fff"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon-icon-Dp3"
+            >
+              <title id="shoppingCart">shopping cart</title>
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+          </div>
+        </nav>
+
+        <div class="sidebar" id="sidebar">
+          <div class="top-head">
+            <h2>Filters</h2>
+            <span class="close-btn" id="closeBtn">&times;</span>
+          </div>
+
+          <div id="mob-filter" class="mob-filter">
+            <div id="clear" class="clear">Clear all</div>
+
+            <aside class="filter-slot">
+              <ul>
+                <li>
+                  <h4>Categories</h4>
+                  <ul>
+                    <li><a href="#">Jewellery</a></li>
+                    <li><a href="#">Elecronics</a></li>
+                    <li><a href="#">Men's Clothing</a></li>
+                    <li><a href="#">Women's Clothing</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <div class="text-center">
+                <button class="btn btn-primary">SEE 17 RESULTS</button>
+              </div>
+            </aside>
+          </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
+      </div>
+      <div class="row header-wrapper add-flex align-center">
+        <div class="logo">
+          <img src="./images/VeniaLogo.svg" alt="venialLogo" width="78px" />
+        </div>
         <div class="menu">
           <ul class="add-flex gap-3">
             <li><a href="#" class="active">Home</a></li>
@@ -21,8 +93,223 @@
             <li><a href="#">Accessories</a></li>
           </ul>
         </div>
-        <div class="cart"></div>
+        <div class="cart">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon-icon-Dp3"
+          >
+            <title id="shoppingCart">shopping cart</title>
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+        </div>
       </div>
     </header>
+    <main>
+      <div class="vania-banner-wrap">
+        <div class="desc add-flex align-center justify-center text-center">
+          <h1>Men's <br />Outerwear</h1>
+        </div>
+        <div class="banner-img"></div>
+      </div>
+      <section class="top-section row add-flex align-center">
+        <div class="breadcrums">
+          <a href="#">Clothing</a> <span>/</span> <a href="#">Women's</a>
+          <span>/</span>
+          <span class="current">Outerwear</span>
+        </div>
+        <div class="add-flex justify-space-between align-center filter-top">
+          <div class="search result">38 Result</div>
+          <div class="filter">
+            <select>
+              <option>Sort by price</option>
+              <option>Best Match</option>
+            </select>
+          </div>
+        </div>
+      </section>
+      <section class="category-section row">
+        <aside class="filter-slot">
+          <ul>
+            <li>
+              <h2>Filters</h2>
+              <h4>Categories</h4>
+              <ul>
+                <li><a href="#">Jewellery</a></li>
+                <li><a href="#">Elecronics</a></li>
+                <li><a href="#">Men's Clothing</a></li>
+                <li><a href="#">Women's Clothing</a></li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+        <div class="product-list-wrapper">
+          <ul class="product-list">
+            <li>
+              <div class="image-wrapper">
+                <a href="#"><img src="./images/product-img.png" /></a>
+              </div>
+              <div class="variant-desc">
+                <div class="product-title">Varsity Eco-friendly Jacket</div>
+                <div class="price"><span>$</span>110.00</div>
+                <button class="wishlist">
+                  <img src="./images/wishlist.svg" />
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class="image-wrapper">
+                <a href="#"><img src="./images/product-img.png" /></a>
+              </div>
+              <div class="variant-desc">
+                <div class="product-title">Varsity Eco-friendly Jacket</div>
+                <button class="wishlist">
+                  <img src="./images/wishlist.svg" />
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class="image-wrapper">
+                <a href="#"><img src="./images/product-img.png" /></a>
+              </div>
+              <div class="variant-desc">
+                <div class="product-title">Varsity Eco-friendly Jacket</div>
+                <button class="wishlist">
+                  <img src="./images/wishlist.svg" />
+                </button>
+              </div>
+            </li>
+            <li>
+              <div class="image-wrapper">
+                <a href="#"><img src="./images/product-img.png" /></a>
+              </div>
+              <div class="variant-desc">
+                <div class="product-title">Varsity Eco-friendly Jacket</div>
+                <button class="wishlist">
+                  <img src="./images/wishlist.svg" />
+                </button>
+              </div>
+            </li>
+          </ul>
+          <div class="pagination text-center">
+            <ul>
+              <li class="active"><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li class="next"><a href="#"></a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-wrapper">
+        <div class="footer-links">
+          <ul class="add-flex row flex-1">
+            <li>
+              <h5>Account</h5>
+              <ul>
+                <li><a href="#">Sign In</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Order Status</a></li>
+              </ul>
+            </li>
+            <li>
+              <h5>About Us</h5>
+              <ul>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Careers</a></li>
+              </ul>
+            </li>
+            <li>
+              <h5>Help</h5>
+              <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Order Status</a></li>
+                <li><a href="#">Returns</a></li>
+              </ul>
+            </li>
+            <li>
+              <h5>Follow Us!</h5>
+              <ul>
+                <li>
+                  <a href="#"
+                    >Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore.</a
+                  >
+                </li>
+
+                <li>
+                  <ul class="add-flex align-center social-icons">
+                    <li>
+                      <a href="#"
+                        ><img src="./images/instagram.svg" alt="instagram"
+                      /></a>
+                    </li>
+                    <li>
+                      <a href="#"
+                        ><img src="./images/facebook.svg" alt="facebook"
+                      /></a>
+                    </li>
+                    <li>
+                      <a href="#"
+                        ><img src="./images/twitter.svg" alt="twitter"
+                      /></a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <ul class="row add-flex footer-end-wrapper">
+          <li><img src="./images/VeniaLogoF.svg" width="102" /></li>
+          <li class="flex-1 text-center">
+            © Company Name Address Ave, City Name, State ZIP
+          </li>
+          <li class="font-small add-flex footer-end-link">
+            <a href="#">Terms of Use</a><a href="#">Privacy Policy</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <script>
+      const jsonObj = fetch("https://fakestoreapi.com/products")
+        .then((res) => res.json())
+        .then((res) => console.log(res[0].image))
+        .catch((err) => console.log(err));
+      console.log(jsonObj);
+    </script>
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const sidebar = document.getElementById("sidebar");
+      const closeBtn = document.getElementById("closeBtn");
+      const overlay = document.getElementById("overlay");
+
+      hamburger.addEventListener("click", () => {
+        sidebar.classList.add("active");
+        overlay.classList.add("active");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+      });
+
+      overlay.addEventListener("click", () => {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+      });
+    </script>
   </body>
 </html>
