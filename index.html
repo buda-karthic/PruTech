@@ -29,9 +29,9 @@
             <span class="bar"></span>
           </div>
           <div class="logo">
-            <img src="/images/VeniaLogo.svg" width="102" />
+            <img src="/images/VeniaLogo.svg" width="102" alt="venialLogo" />
           </div>
-          <div class="cart">
+          <div class="cart" aria-label="shoppingCart icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -60,7 +60,6 @@
 
           <div id="mob-filter" class="mob-filter">
             <div id="clear" class="clear">Clear all</div>
-
             <aside class="filter-slot">
               <div>
                 <label>Categories:</label>
@@ -101,11 +100,39 @@
               <!-- <ul>
                 <li>
                   <h4>Categories</h4>
-                  <ul>
-                    <li><a href="#">Jewellery</a></li>
-                    <li><a href="#">Elecronics</a></li>
-                    <li><a href="#">Men's Clothing</a></li>
-                    <li><a href="#">Women's Clothing</a></li>
+                  <ul aria-label="Navigation filter">
+                    <li>
+                      <div class="checkbox-wrapper">
+                        <input type="checkbox" id="Jewellerym" /><label
+                          for="Jewellerym"
+                          >Jewellery</label
+                        >
+                      </div>
+                    </li>
+                    <li>
+                      <div class="checkbox-wrapper">
+                        <input type="checkbox" id="Elecronicsm" /><label
+                          for="Elecronicsm"
+                          >Elecronics</label
+                        >
+                      </div>
+                    </li>
+                    <li>
+                      <div class="checkbox-wrapper">
+                        <input type="checkbox" id="MenClothingm" /><label
+                          for="MenClothingm"
+                          >Men's Clothing</label
+                        >
+                      </div>
+                    </li>
+                    <li>
+                      <div class="checkbox-wrapper">
+                        <input type="checkbox" id="WomenClothingm" /><label
+                          for="WomenClothingm"
+                          >Women's Clothing</label
+                        >
+                      </div>
+                    </li>
                   </ul>
                 </li>
               </ul> -->
@@ -119,18 +146,18 @@
       </div>
       <div class="row header-wrapper add-flex align-center">
         <div class="logo">
-          <img src="./images/VeniaLogo.svg" alt="venialLogo" width="78px" />
+          <img src="./images/VeniaLogo.svg" alt="venialLogo" width="78" />
         </div>
         <div class="menu">
-          <ul class="add-flex gap-3">
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">Women</a></li>
-            <li><a href="#">Men</a></li>
-            <li><a href="#">Smart Gear</a></li>
-            <li><a href="#">Accessories</a></li>
+          <ul class="add-flex gap-3" aria-label="Navigation menu">
+            <li><a href="#" class="active menu-item">Home</a></li>
+            <li><a href="#" class="menu-item">Women</a></li>
+            <li><a href="#" class="menu-item">Men</a></li>
+            <li><a href="#" class="menu-item">Smart Gear</a></li>
+            <li><a href="#" class="menu-item">Accessories</a></li>
           </ul>
         </div>
-        <div class="cart">
+        <div class="cart" aria-label="shoppingCart icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -143,7 +170,7 @@
             stroke-linejoin="round"
             class="icon-icon-Dp3"
           >
-            <title id="shoppingCart">shopping cart</title>
+            <title id="shoppingCartsvg">shopping cart</title>
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
             <line x1="3" y1="6" x2="21" y2="6" />
             <path d="M16 10a4 4 0 0 1-8 0" />
@@ -158,7 +185,7 @@
         </div>
         <div class="banner-img"></div>
       </div>
-      <section class="top-section row add-flex align-center">
+      <div class="top-section row add-flex align-center">
         <div class="breadcrums">
           <a href="#">Clothing</a> <span>/</span> <a href="#">Women's</a>
           <span>/</span>
@@ -179,10 +206,10 @@
             </select>
           </div>
         </div>
-      </section>
+      </div>
       <section class="category-section row">
         <aside class="filter-slot">
-          <ul>
+          <ul aria-label="Navigation filter">
             <li>
               <h2>Filters</h2>
               <div class="filter">
@@ -208,46 +235,54 @@
           <ul class="product-list">
             <!-- <li>
               <div class="image-wrapper">
-                <a href="#"><img src="./images/product-img.png" /></a>
+                <a href="#"
+                  ><img src="./images/product-img.png" alt="product-img"
+                /></a>
               </div>
               <div class="variant-desc">
                 <div class="product-title">Varsity Eco-friendly Jacket</div>
                 <div class="price"><span>$</span>110.00</div>
                 <button class="wishlist">
-                  <img src="./images/wishlist.svg" />
+                  <img src="./images/wishlist.svg" alt="wishlist" />
                 </button>
               </div>
             </li>
             <li>
               <div class="image-wrapper">
-                <a href="#"><img src="./images/product-img.png" /></a>
+                <a href="#"
+                  ><img src="./images/product-img.png" alt="product-img"
+                /></a>
               </div>
               <div class="variant-desc">
                 <div class="product-title">Varsity Eco-friendly Jacket</div>
                 <button class="wishlist">
-                  <img src="./images/wishlist.svg" />
+                  <img src="./images/wishlist.svg" alt="product-img" />
                 </button>
               </div>
             </li>
             <li>
               <div class="image-wrapper">
-                <a href="#"><img src="./images/product-img.png" /></a>
+                <a href="#"
+                  ><img src="./images/product-img.png" alt="product-img"
+                /></a>
               </div>
               <div class="variant-desc">
                 <div class="product-title">Varsity Eco-friendly Jacket</div>
                 <button class="wishlist">
-                  <img src="./images/wishlist.svg" />
+                  <img src="./images/wishlist.svg" alt="wishlist" />
                 </button>
               </div>
             </li>
             <li>
               <div class="image-wrapper">
-                <a href="#"><img src="./images/product-img.png" /></a>
+                <a href="#"
+                  ><img src="./images/product-img.png" alt="product-img"
+                /></a>
               </div>
               <div class="variant-desc">
                 <div class="product-title">Varsity Eco-friendly Jacket</div>
                 <button class="wishlist">
-                  <img src="./images/wishlist.svg" />
+                  <img src="./images/wishlist.svg" alt="wishlist" />
                 </button>
               </div>
             </li> -->
@@ -267,7 +302,7 @@
     <footer>
       <div class="footer-wrapper">
         <div class="footer-links">
-          <ul class="add-flex row flex-1">
+          <ul class="add-flex row flex-1" aria-label="Navigation footer menu">
             <li>
               <h5>Account</h5>
               <ul>
@@ -302,7 +337,10 @@
                 </li>
 
                 <li>
-                  <ul class="add-flex align-center social-icons">
+                  <ul
+                    class="add-flex align-center social-icons"
+                    aria-label="social-icons"
+                  >
                     <li>
                       <a href="#"
                         ><img src="./images/instagram.svg" alt="instagram"
@@ -325,7 +363,9 @@
           </ul>
         </div>
         <ul class="row add-flex footer-end-wrapper">
-          <li><img src="./images/VeniaLogoF.svg" width="102" /></li>
+          <li>
+            <img src="./images/VeniaLogoF.svg" width="102" alt="venialLogo" />
+          </li>
           <li class="flex-1 text-center">
             © Company Name Address Ave, City Name, State ZIP
           </li>
@@ -336,7 +376,7 @@
       </div>
     </footer>
     <script src="index.js"></script>
-    <!-- <script>
+    <script>
       const jsonObj = fetch("https://fakestoreapi.com/products")
         .then((res) => res.json())
         .then((res) => console.log(res[0].image))
@@ -363,6 +403,16 @@
         sidebar.classList.remove("active");
         overlay.classList.remove("active");
       });
-    </script> -->
+    </script>
+    <script>
+      const menuItems = document.querySelectorAll(".menu-item");
+
+      menuItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          menuItems.forEach((i) => i.classList.remove("active"));
+          item.classList.add("active");
+        });
+      });
+    </script>
   </body>
 </html>

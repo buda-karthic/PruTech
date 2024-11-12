@@ -35,6 +35,7 @@ body {
 a {
   text-decoration: none;
   color: $text-primary;
+  transition: ease 0.15s;
 }
 img {
   max-width: 100%;
@@ -169,6 +170,19 @@ header {
       color: $text-light;
     }
   }
+  .filter {
+    select {
+      border-radius: 8px;
+      border: 2px solid #b5b7bc;
+      height: 40px;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      padding: 0 50px 0 15px;
+      background: url(./images/arrow.svg) no-repeat right 15px center;
+      font-size: 1.6rem;
+    }
+  }
   .filter-top {
     flex: 1;
   }
@@ -196,14 +210,31 @@ aside.filter-slot {
       li {
         display: flex;
         align-items: center;
-        &:before {
-          content: "";
-          width: 24px;
-          height: 24px;
-          border: 2px solid $dark-border;
-          display: inline-block;
-          border-radius: 2px;
-          margin-right: 16px;
+
+        .checkbox-wrapper {
+          label {
+            display: flex;
+            align-items: center;
+
+            &::before {
+              content: "";
+              width: 24px;
+              height: 24px;
+              border: 2px solid $dark-border;
+              display: inline-block;
+              border-radius: 2px;
+              margin-right: 16px;
+              transition: ease 0.25s;
+              cursor: pointer;
+            }
+          }
+          input {
+            display: none;
+            &:checked + label::before {
+              background: $primary-color;
+              border-color: transparent;
+            }
+          }
         }
       }
     }
@@ -346,6 +377,9 @@ footer {
 //Menu End
 
 @media screen and (max-width: 767px) {
+  .filter {
+    display: none;
+  }
   .mobile-menu {
     .logo,
     .cart {
@@ -414,6 +448,34 @@ footer {
   .header-wrapper {
     display: none;
   }
+  .mobile-sort {
+    ul {
+      display: flex;
+      gap: 16px;
+      a {
+        color: $text-dark;
+        text-decoration: underline;
+        position: relative;
+        text-underline-offset: 3px;
+        position: relative;
+        padding-left: 25px;
+        svg {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    .filter-result {
+      gap: 5px;
+    }
+    .sort-filter {
+      svg + svg {
+        left: 10px;
+      }
+    }
+  }
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -444,9 +506,10 @@ footer {
       order: 2;
       font-size: 3.6rem;
       height: auto;
-      padding: 3.5rem;
+      padding: 3.5rem 3.5rem 4rem;
       margin: -40px 12px 0 12px;
-      span {
+      h1 {
+        line-height: 1.2;
         &::before {
           bottom: -18px;
         }
@@ -454,8 +517,10 @@ footer {
     }
     .banner-img {
       order: 1;
-      background-size: contain;
-      min-height: 0;
+      background-size: 100% 175px;
+      height: 175px;
+      max-width: 100%;
+      aspect-ratio: auto;
     }
     .top-section {
       flex-direction: column;
@@ -505,6 +570,9 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
+  .mobile-sort {
+    display: none;
+  }
   .mobile-menu {
     display: none;
   }

@@ -27,6 +27,7 @@ body {
 a {
   text-decoration: none;
   color: #172026;
+  transition: ease 0.15s;
 }
 
 img {
@@ -159,6 +160,17 @@ header .menu a.active:before {
 .top-section .breadcrums .current {
   color: #545d63;
 }
+.top-section .filter select {
+  border-radius: 8px;
+  border: 2px solid #b5b7bc;
+  height: 40px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0 50px 0 15px;
+  background: url(./images/arrow.svg) no-repeat right 15px center;
+  font-size: 1.6rem;
+}
 .top-section .filter-top {
   flex: 1;
 }
@@ -184,7 +196,11 @@ aside.filter-slot > ul ul li {
   display: flex;
   align-items: center;
 }
-aside.filter-slot > ul ul li:before {
+aside.filter-slot > ul ul li .checkbox-wrapper label {
+  display: flex;
+  align-items: center;
+}
+aside.filter-slot > ul ul li .checkbox-wrapper label::before {
   content: "";
   width: 24px;
   height: 24px;
@@ -192,6 +208,15 @@ aside.filter-slot > ul ul li:before {
   display: inline-block;
   border-radius: 2px;
   margin-right: 16px;
+  transition: ease 0.25s;
+  cursor: pointer;
+}
+aside.filter-slot > ul ul li .checkbox-wrapper input {
+  display: none;
+}
+aside.filter-slot > ul ul li .checkbox-wrapper input:checked + label::before {
+  background: #1363df;
+  border-color: transparent;
 }
 
 .category-section {
@@ -319,6 +344,9 @@ footer .footer-end-link a {
 }
 
 @media screen and (max-width: 767px) {
+  .filter {
+    display: none;
+  }
   .mobile-menu {
     /* Close button inside sidebar */
   }
@@ -381,6 +409,30 @@ footer .footer-end-link a {
   .header-wrapper {
     display: none;
   }
+  .mobile-sort ul {
+    display: flex;
+    gap: 16px;
+  }
+  .mobile-sort ul a {
+    color: #181c24;
+    text-decoration: underline;
+    position: relative;
+    text-underline-offset: 3px;
+    position: relative;
+    padding-left: 25px;
+  }
+  .mobile-sort ul a svg {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .mobile-sort .filter-result {
+    gap: 5px;
+  }
+  .mobile-sort .sort-filter svg + svg {
+    left: 10px;
+  }
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -411,16 +463,21 @@ footer .footer-end-link a {
     order: 2;
     font-size: 3.6rem;
     height: auto;
-    padding: 3.5rem;
+    padding: 3.5rem 3.5rem 4rem;
     margin: -40px 12px 0 12px;
   }
-  .vania-banner-wrap .desc span::before {
+  .vania-banner-wrap .desc h1 {
+    line-height: 1.2;
+  }
+  .vania-banner-wrap .desc h1::before {
     bottom: -18px;
   }
   .vania-banner-wrap .banner-img {
     order: 1;
-    background-size: contain;
-    min-height: 0;
+    background-size: 100% 175px;
+    height: 175px;
+    max-width: 100%;
+    aspect-ratio: auto;
   }
   .vania-banner-wrap .top-section {
     flex-direction: column;
@@ -468,6 +525,9 @@ footer .footer-end-link a {
   }
 }
 @media screen and (min-width: 768px) {
+  .mobile-sort {
+    display: none;
+  }
   .mobile-menu {
     display: none;
   }
