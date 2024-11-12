@@ -344,8 +344,11 @@ footer .footer-end-link a {
 }
 
 @media screen and (max-width: 767px) {
-  .filter {
+  /* .filter {
     display: none;
+  } */
+  #sortSelect {
+    display: none !important;
   }
   .mobile-menu {
     /* Close button inside sidebar */
@@ -525,6 +528,9 @@ footer .footer-end-link a {
   }
 }
 @media screen and (min-width: 768px) {
+  #sortSelect {
+    display: none !important;
+  }
   .mobile-sort {
     display: none;
   }

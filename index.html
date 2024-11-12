@@ -61,83 +61,26 @@
           <div id="mob-filter" class="mob-filter">
             <div id="clear" class="clear">Clear all</div>
             <aside class="filter-slot">
-              <div>
-                <label>Categories:</label>
-                <div>
-                  <input
-                    type="checkbox"
-                    id="category-electronics"
-                    value="electronics"
-                  />
-                  <label for="category-electronics">Electronics</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    id="category-jewelery"
-                    value="jewelery"
-                  />
-                  <label for="category-jewelery">Jewelry</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    id="category-mens-clothing"
-                    value="men's clothing"
-                  />
-                  <label for="category-mens-clothing">Men's Clothing</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    id="category-womens-clothing"
-                    value="women's clothing"
-                  />
-                  <label for="category-womens-clothing">Women's Clothing</label>
-                </div>
+              <div class="filter">
+                <label for="categoryFilter">Categories:</label>
+                <div class="filter" id="categoryFilter"></div>
               </div>
-
-              <!-- <ul>
-                <li>
-                  <h4>Categories</h4>
-                  <ul aria-label="Navigation filter">
-                    <li>
-                      <div class="checkbox-wrapper">
-                        <input type="checkbox" id="Jewellerym" /><label
-                          for="Jewellerym"
-                          >Jewellery</label
-                        >
-                      </div>
-                    </li>
-                    <li>
-                      <div class="checkbox-wrapper">
-                        <input type="checkbox" id="Elecronicsm" /><label
-                          for="Elecronicsm"
-                          >Elecronics</label
-                        >
-                      </div>
-                    </li>
-                    <li>
-                      <div class="checkbox-wrapper">
-                        <input type="checkbox" id="MenClothingm" /><label
-                          for="MenClothingm"
-                          >Men's Clothing</label
-                        >
-                      </div>
-                    </li>
-                    <li>
-                      <div class="checkbox-wrapper">
-                        <input type="checkbox" id="WomenClothingm" /><label
-                          for="WomenClothingm"
-                          >Women's Clothing</label
-                        >
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ul> -->
+              <!-- Price range filter -->
+              <div class="price-range">
+                <h3>Filter by Price</h3>
+                <input
+                  type="range"
+                  id="applyPriceRange"
+                  min="0"
+                  value="100"
+                  step="1"
+                />
+                <p id="price-range-display">0 - $100</p>
+              </div>
               <div class="text-center">
-                <button class="btn btn-primary">SEE 17 RESULTS</button>
+                <button id="searchbutton" class="btn btn-primary search result">
+                  SEE 0 RESULTS
+                </button>
               </div>
             </aside>
           </div>
@@ -197,12 +140,13 @@
             id="searchinput"
             placeholder="Search by products name..."
           />
-          <div id="searchresult" class="search result">38 Result</div>
+          <div id="searchresult">0 Results</div>
           <div class="mobile-sort">
             <ul>
               <li>
-                <a href="#" class="filter-result add-flex align-center"
-                  ><svg
+                <p class="filter-result add-flex align-center"
+                  >
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
                     height="18"
@@ -310,16 +254,17 @@
                       />
                     </g>
                   </svg>
-                  Filter Result</a
+                  Filter Result</p
                 >
               </li>
               <li>
-                <a href="#" class="sort-filter"
-                  ><svg
+                <p class="sort-filter"></p>
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="10.802"
                     height="15.287"
                     viewBox="0 0 10.802 15.287"
+                    class="high"
                   >
                     <g id="arrow-up" transform="translate(1.8 1)">
                       <path
@@ -350,6 +295,7 @@
                     width="10.802"
                     height="15.287"
                     viewBox="0 0 10.802 15.287"
+                     class="low"
                   >
                     <g id="arrow-down" transform="translate(1.401)">
                       <path
@@ -376,8 +322,8 @@
                     </g>
                   </svg>
 
-                  Sort Products</a
-                >
+                  Sort Products
+                </p>
               </li>
             </ul>
           </div>
@@ -416,64 +362,11 @@
         </aside>
         <div class="product-list-wrapper">
           <ul class="product-list">
-            <!-- <li>
-              <div class="image-wrapper">
-                <a href="#"
-                  ><img src="./images/product-img.png" alt="product-img"
-                /></a>
-              </div>
-              <div class="variant-desc">
-                <div class="product-title">Varsity Eco-friendly Jacket</div>
-                <div class="price"><span>$</span>110.00</div>
-                <button class="wishlist">
-                  <img src="./images/wishlist.svg" alt="wishlist" />
-                </button>
-              </div>
-            </li>
-            <li>
-              <div class="image-wrapper">
-                <a href="#"
-                  ><img src="./images/product-img.png" alt="product-img"
-                /></a>
-              </div>
-              <div class="variant-desc">
-                <div class="product-title">Varsity Eco-friendly Jacket</div>
-                <button class="wishlist">
-                  <img src="./images/wishlist.svg" alt="product-img" />
-                </button>
-              </div>
-            </li>
-            <li>
-              <div class="image-wrapper">
-                <a href="#"
-                  ><img src="./images/product-img.png" alt="product-img"
-                /></a>
-              </div>
-              <div class="variant-desc">
-                <div class="product-title">Varsity Eco-friendly Jacket</div>
-                <button class="wishlist">
-                  <img src="./images/wishlist.svg" alt="wishlist" />
-                </button>
-              </div>
-            </li>
-            <li>
-              <div class="image-wrapper">
-                <a href="#"
-                  ><img src="./images/product-img.png" alt="product-img"
-                /></a>
-              </div>
-              <div class="variant-desc">
-                <div class="product-title">Varsity Eco-friendly Jacket</div>
-                <button class="wishlist">
-                  <img src="./images/wishlist.svg" alt="wishlist" />
-                </button>
-              </div>
-            </li> -->
+            <!-- Dynamically inserting the products -->
           </ul>
           <div id="shimmer" class="shimmer" style="display: none">
             Loading...
           </div>
-          <!-- <button id="loadMoreBtn">Load More</button> -->
           <div class="pagination text-center">
             <ul>
               <!-- Pagination items will be dynamically added here -->
@@ -559,43 +452,5 @@
       </div>
     </footer>
     <script src="index.js"></script>
-    <script>
-      const jsonObj = fetch("https://fakestoreapi.com/products")
-        .then((res) => res.json())
-        .then((res) => console.log(res[0].image))
-        .catch((err) => console.log(err));
-      console.log(jsonObj);
-    </script>
-    <script>
-      const hamburger = document.getElementById("hamburger");
-      const sidebar = document.getElementById("sidebar");
-      const closeBtn = document.getElementById("closeBtn");
-      const overlay = document.getElementById("overlay");
-
-      hamburger.addEventListener("click", () => {
-        sidebar.classList.add("active");
-        overlay.classList.add("active");
-      });
-
-      closeBtn.addEventListener("click", () => {
-        sidebar.classList.remove("active");
-        overlay.classList.remove("active");
-      });
-
-      overlay.addEventListener("click", () => {
-        sidebar.classList.remove("active");
-        overlay.classList.remove("active");
-      });
-    </script>
-    <script>
-      const menuItems = document.querySelectorAll(".menu-item");
-
-      menuItems.forEach((item) => {
-        item.addEventListener("click", () => {
-          menuItems.forEach((i) => i.classList.remove("active"));
-          item.classList.add("active");
-        });
-      });
-    </script>
   </body>
 </html>

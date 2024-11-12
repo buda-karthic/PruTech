@@ -2,18 +2,21 @@ let productsList = []; // Store fetched products
 let displayedProducts = []; // Store products to display
 let currentPage = 1; // Track the current page number
 const ITEMS_PER_PAGE = 10; // Number of products per page
+const hamburger = document.getElementById("hamburger");
+const sidebar = document.getElementById("sidebar");
+const closeBtn = document.getElementById("closeBtn");
+const overlay = document.getElementById("overlay");
+const menuItems = document.querySelectorAll(".menu-item");
+const mobileFilterBtn = document.getElementById("searchbutton");
+const resultCountDiv = document.querySelector("#searchresult");
+const resultCountbutton = document.querySelector("#searchbutton");
+const svgHigh = document.querySelector(".high");
+const svgLow = document.querySelector(".low");
+const filtersMobBtn = document.querySelector(".filter-result");
 
-// Debounce function for search input
-function debounce(func, delay) {
-  let timeout;
-  return function (...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(this, args), delay);
-  };
-}
-
+// fetching products
 async function fetchProducts() {
-  showLoading(true); // Show loading shimmer
+  showLoading(true);
   try {
     const response = await fetch("https://fakestoreapi.com/products");
 
@@ -49,6 +52,57 @@ async function fetchProducts() {
   } finally {
     showLoading(false); // Hide loading shimmer
   }
+}
+
+fetchProducts();
+
+filtersMobBtn.addEventListener("click", () => {
+  sidebar.classList.add("active");
+  overlay.classList.add("active");
+});
+
+svgHigh.addEventListener("click", () => {
+  sortProducts("dsc");
+});
+
+svgLow.addEventListener("click", () => {
+  sortProducts("asc");
+});
+
+menuItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    menuItems.forEach((i) => i.classList.remove("active"));
+    item.classList.add("active");
+  });
+});
+
+hamburger.addEventListener("click", () => {
+  sidebar.classList.add("active");
+  overlay.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+});
+
+overlay.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+});
+
+mobileFilterBtn.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+});
+
+// Debounce function for search input
+function debounce(func, delay) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), delay);
+  };
 }
 
 // Handle errors
@@ -190,6 +244,7 @@ function displayProductsForPage(page) {
   displayProducts(productsForPage);
 }
 
+// Loading function
 function showLoading(isLoading) {
   const shimmer = document.getElementById("shimmer");
   shimmer.style.display = isLoading ? "block" : "none";
@@ -254,13 +309,16 @@ function filterProducts(query = "") {
 }
 
 function updateSearchResultCount() {
-  const resultCountDiv = document.querySelector(".search.result");
-
   if (resultCountDiv) {
     resultCountDiv.innerHTML = `${displayedProducts.length} Result${
       displayedProducts.length !== 1 ? "s" : ""
     }`;
   }
+  if (resultCountbutton) {
+    resultCountbutton.innerHTML = `See ${displayedProducts.length} Result${
+      displayedProducts.length !== 1 ? "s" : ""
+    }`;
+  }
 }
 
-fetchProducts();
+
