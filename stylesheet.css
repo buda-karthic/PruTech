@@ -178,6 +178,9 @@ header .cart {
   flex: 1;
   gap: 32px;
 }
+.filter-top #searchresult {
+  min-width: 78px;
+}
 .top-section .filter {
   margin-left: auto;
 }
@@ -263,6 +266,7 @@ aside.filter-slot .checkbox-wrapper input:checked + label::before {
 }
 .category-section .pagination ul {
   display: inline-flex;
+  align-items: center;
   gap: 15px;
 }
 .category-section .pagination ul li {
@@ -270,8 +274,9 @@ aside.filter-slot .checkbox-wrapper input:checked + label::before {
 }
 .category-section .pagination ul li.active {
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
-.category-section .pagination ul li.next:before {
+.category-section .pagination ul:after {
   content: "";
   width: 8px;
   height: 8px;
@@ -280,6 +285,8 @@ aside.filter-slot .checkbox-wrapper input:checked + label::before {
   border-width: 0 2px 2px 0;
   display: inline-block;
   transform: rotate(-45deg);
+  margin-top: -3px;
+  display: none;
 }
 
 footer {
@@ -504,6 +511,7 @@ footer .footer-end-link a {
     gap: 32px;
     margin-top: 32px;
   }
+
   .category-section {
     grid-template-columns: 1fr;
   }
