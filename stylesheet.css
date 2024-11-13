@@ -231,6 +231,10 @@ aside.filter-slot .checkbox-wrapper input:checked + label::before {
   border-color: transparent;
 }
 
+/* .checkbox-wrapper {
+  display: flex;
+} */
+
 .category-section {
   display: grid;
   grid-template-columns: calc(25% - 25px) calc(75% - 25px);

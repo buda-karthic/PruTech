@@ -13,6 +13,9 @@ const resultCountbutton = document.querySelector("#searchbutton");
 const svgHigh = document.querySelector(".high");
 const svgLow = document.querySelector(".low");
 const filtersMobBtn = document.querySelector(".filter-result");
+// Price Range filter
+const priceRangeInput = document.getElementById("applyPriceRange");
+const priceRangeDisplay = document.getElementById("price-range-display");
 
 // fetching products
 async function fetchProducts() {
@@ -146,7 +149,9 @@ function displayProducts(products) {
 function populateCategoryFilter(products) {
   const categories = [...new Set(products.map((product) => product.category))]; // Get unique categories
   const categoryFilter = document.getElementById("categoryFilter");
+  const desCategoryFilter = document.getElementById("desCategoryFilter");
   categoryFilter.innerHTML = ""; // Clear previous category checkboxes
+  desCategoryFilter.innerHTML = ""; // Clear previous category checkboxes
 
   const categoryItems = categories
     .map((category) => {
@@ -154,7 +159,19 @@ function populateCategoryFilter(products) {
     })
     .join("");
   categoryFilter.innerHTML = categoryItems;
+  desCategoryFilter.innerHTML = categoryItems;
 
+  desCategoryFilter
+    .querySelectorAll('input[type="checkbox"]')
+    .forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        // Get the value from the search input field
+        const query = document.getElementById("searchinput").value;
+
+        // Call filterProducts with the query
+        filterProducts(query);
+      });
+    });
   // Event listener for checkboxes
   categoryFilter
     .querySelectorAll('input[type="checkbox"]')
@@ -164,7 +181,7 @@ function populateCategoryFilter(products) {
         const query = document.getElementById("searchinput").value;
 
         // Call filterProducts with the query
-        filterProducts(query);
+        filterProducts(query, false);
       });
     });
 }
@@ -178,9 +195,7 @@ document.getElementById("searchinput").addEventListener(
   }, 300)
 );
 
-// Price Range filter
-const priceRangeInput = document.getElementById("applyPriceRange");
-const priceRangeDisplay = document.getElementById("price-range-display");
+
 
 priceRangeInput.addEventListener("input", (event) => {
   const maxPrice = event.target.value;
@@ -274,13 +289,24 @@ document.getElementById("sortSelect").addEventListener("change", (event) => {
   sortProducts(event.target.value);
 });
 
-function filterProducts(query = "") {
+function filterProducts(query = "", desCategoryFilter = true) {
   // Ensure query is always a string
   query = String(query).toLowerCase(); // Convert to string and then apply toLowerCase()
+  let selectedCategories;
 
-  const selectedCategories = Array.from(
-    document.querySelectorAll("#categoryFilter input[type='checkbox']:checked")
-  ).map((checkbox) => checkbox.value);
+  if (!desCategoryFilter) {
+    selectedCategories = Array.from(
+      document.querySelectorAll(
+        "#categoryFilter input[type='checkbox']:checked"
+      )
+    ).map((checkbox) => checkbox.value);
+  } else {
+    selectedCategories = Array.from(
+      document.querySelectorAll(
+        "#desCategoryFilter input[type='checkbox']:checked"
+      )
+    ).map((checkbox) => checkbox.value);
+  }
 
   const sortSelectElement = document.getElementById("sortSelect");
   const sortOrder = sortSelectElement ? sortSelectElement.value : "";
