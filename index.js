@@ -14,8 +14,8 @@ const svgHigh = document.querySelector(".high");
 const svgLow = document.querySelector(".low");
 const filtersMobBtn = document.querySelector(".filter-result");
 // Price Range filter
-const priceRangeInput = document.getElementById("applyPriceRange");
-const priceRangeDisplay = document.getElementById("price-range-display");
+const priceRangeInput = document.querySelectorAll(".applyPriceRange");
+const priceRangeDisplay = document.querySelectorAll(".price-range-display");
 
 // fetching products
 async function fetchProducts() {
@@ -39,13 +39,19 @@ async function fetchProducts() {
       Math.max(...products.map((product) => product.price)) + 1;
 
     // Set the maximum value of the progress bar to the highest price
-    const progressBar = document.getElementById("applyPriceRange");
-    progressBar.max = highestPrice;
-    progressBar.value = highestPrice;
+    const progressBar = document.querySelectorAll(".applyPriceRange");
+    progressBar.forEach((priceRangeDisplay) => {
+      priceRangeDisplay.max = highestPrice;
+      priceRangeDisplay.value = highestPrice;
+    });
 
     // Update the price range display with min and max prices
-    const priceRangeDisplay = document.getElementById("price-range-display");
-    priceRangeDisplay.innerHTML = `${0} - $${highestPrice}`; // Display the price range dynamically
+    const priceRangeDisplays = document.querySelectorAll(
+      ".price-range-display"
+    );
+    priceRangeDisplays.forEach((priceRangeDisplay) => {
+      priceRangeDisplay.innerHTML = `$0 - $${highestPrice}`;
+    });
 
     displayPagination(); // Create pagination based on the fetched products
     updateSearchResultCount(); // Update the search result count on load
@@ -195,12 +201,15 @@ document.getElementById("searchinput").addEventListener(
   }, 300)
 );
 
+priceRangeInput.forEach((priceInput) => {
+  priceInput.addEventListener("input", (event) => {
+    const maxPrice = event.target.value;
+    priceRangeDisplay.forEach((e) => {
+      e.textContent = `0 - $${maxPrice}`;
+    });
 
-
-priceRangeInput.addEventListener("input", (event) => {
-  const maxPrice = event.target.value;
-  priceRangeDisplay.textContent = `0 - $${maxPrice}`;
-  filterProductsByPrice(maxPrice); // Filter products based on price range
+    filterProductsByPrice(maxPrice); // Filter products based on price range
+  });
 });
 
 function filterProductsByPrice(maxPrice) {
