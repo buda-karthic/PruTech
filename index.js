@@ -150,7 +150,7 @@ function populateCategoryFilter(products) {
 
   const categoryItems = categories
     .map((category) => {
-      return `<label><input type="checkbox" value="${category}"> ${category}</label>`;
+      return `<div class='checkbox-wrapper'><input type="checkbox" value="${category}"id='${category}'><label for='${category}'>${category}</label></div>`;
     })
     .join("");
   categoryFilter.innerHTML = categoryItems;
@@ -320,5 +320,3 @@ function updateSearchResultCount() {
     }`;
   }
 }
-
-

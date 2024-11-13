@@ -62,7 +62,7 @@
             <div id="clear" class="clear">Clear all</div>
             <aside class="filter-slot">
               <div class="filter">
-                <label for="categoryFilter">Categories:</label>
+                <label for="categoryFilter">Categories</label>
                 <div class="filter" id="categoryFilter"></div>
               </div>
               <!-- Price range filter -->
@@ -134,18 +134,18 @@
           <span>/</span>
           <span class="current">Outerwear</span>
         </div>
-        <div class="add-flex justify-space-between align-center filter-top">
+        <div class="add-flex align-center filter-top">
+          <div id="searchresult">0 Results</div>
           <input
             type="text"
             id="searchinput"
             placeholder="Search by products name..."
           />
-          <div id="searchresult">0 Results</div>
+
           <div class="mobile-sort">
             <ul>
               <li>
-                <p class="filter-result add-flex align-center"
-                  >
+                <p class="filter-result add-flex align-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -254,11 +254,11 @@
                       />
                     </g>
                   </svg>
-                  Filter Result</p
-                >
+                  Filter Result
+                </p>
               </li>
               <li>
-                <p class="sort-filter"></p>
+                <p class="sort-filter">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="10.802"
@@ -295,7 +295,7 @@
                     width="10.802"
                     height="15.287"
                     viewBox="0 0 10.802 15.287"
-                     class="low"
+                    class="low"
                   >
                     <g id="arrow-down" transform="translate(1.401)">
                       <path
@@ -338,15 +338,10 @@
       </div>
       <section class="category-section row">
         <aside class="filter-slot">
-          <ul aria-label="Navigation filter">
-            <li>
-              <h2>Filters</h2>
-              <div class="filter">
-                <label for="categoryFilter">Categories:</label>
-                <div class="filter" id="categoryFilter"></div>
-              </div>
-            </li>
-          </ul>
+          <div class="filter">
+            <label for="categoryFilter">Categories</label>
+            <div class="filter" id="categoryFilter"></div>
+          </div>
           <!-- Price range filter -->
           <div class="price-range">
             <h3>Filter by Price</h3>
@@ -358,6 +353,11 @@
               step="1"
             />
             <p id="price-range-display">0 - $100</p>
+          </div>
+          <div class="text-center">
+            <button id="searchbutton" class="btn btn-primary search result">
+              SEE 0 RESULTS
+            </button>
           </div>
         </aside>
         <div class="product-list-wrapper">

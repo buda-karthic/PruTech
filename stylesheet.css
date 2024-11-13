@@ -112,7 +112,9 @@ header .menu a.active:before {
   left: 0;
   bottom: 1px;
 }
-
+header .cart {
+  font-size: 0;
+}
 .vania-banner-wrap {
   display: grid;
   grid-template-columns: 30% 70%;
@@ -150,6 +152,7 @@ header .menu a.active:before {
 
 .top-section {
   margin-block: 45px 35px;
+  gap: 25px;
 }
 .top-section .breadcrums {
   min-width: 25%;
@@ -173,6 +176,10 @@ header .menu a.active:before {
 }
 .top-section .filter-top {
   flex: 1;
+  gap: 32px;
+}
+.top-section .filter {
+  margin-left: auto;
 }
 
 aside.filter-slot h2 {
@@ -182,12 +189,17 @@ aside.filter-slot h2 {
   margin-bottom: 15px;
   line-height: 1;
 }
-aside.filter-slot h4 {
+aside.filter-slot label[for="categoryFilter"] {
   font-weight: 600;
+  display: block;
+  margin-bottom: 16px;
 }
-aside.filter-slot > ul > li {
+aside.filter-slot > div {
   border-bottom: 2px solid #d1d3d6;
-  padding-bottom: 16px;
+  padding: 16px 0;
+}
+aside.filter-slot > div:has(#searchbutton) {
+  border: 0;
 }
 aside.filter-slot > ul ul li {
   margin-top: 15px;
@@ -196,11 +208,11 @@ aside.filter-slot > ul ul li {
   display: flex;
   align-items: center;
 }
-aside.filter-slot > ul ul li .checkbox-wrapper label {
+aside.filter-slot .checkbox-wrapper label {
   display: flex;
   align-items: center;
 }
-aside.filter-slot > ul ul li .checkbox-wrapper label::before {
+aside.filter-slot .checkbox-wrapper label::before {
   content: "";
   width: 24px;
   height: 24px;
@@ -211,10 +223,10 @@ aside.filter-slot > ul ul li .checkbox-wrapper label::before {
   transition: ease 0.25s;
   cursor: pointer;
 }
-aside.filter-slot > ul ul li .checkbox-wrapper input {
+aside.filter-slot .checkbox-wrapper input {
   display: none;
 }
-aside.filter-slot > ul ul li .checkbox-wrapper input:checked + label::before {
+aside.filter-slot .checkbox-wrapper input:checked + label::before {
   background: #1363df;
   border-color: transparent;
 }
@@ -386,7 +398,6 @@ footer .footer-end-link a {
   .mobile-menu .sidebar .clear {
     padding-bottom: 16px;
     border-bottom: 2px solid #d1d3d6;
-    margin-bottom: 16px;
     color: #181c24;
     font-size: 1.4rem;
     text-decoration: underline;
@@ -501,9 +512,17 @@ footer .footer-end-link a {
   }
   .category-section .product-list {
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
   .category-section .product-list .variant-desc .product-title {
     font-size: 1.6rem;
+  }
+  .category-section .image-wrapper a {
+    height: 197px !important;
+  }
+  .top-section #searchinput {
+    width: 100%;
+    order: -1;
   }
   .category-section .pagination {
     display: none;
@@ -528,9 +547,9 @@ footer .footer-end-link a {
   }
 }
 @media screen and (min-width: 768px) {
-  #sortSelect {
+  /* #sortSelect {
     display: none !important;
-  }
+  } */
   .mobile-sort {
     display: none;
   }
@@ -556,7 +575,7 @@ footer .footer-end-link a {
   line-height: 40px;
 } /*# sourceMappingURL=stylesheet.css.map */
 
-.shimmer {
+/* .shimmer {
   width: 100%;
   height: 50px;
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
@@ -565,7 +584,7 @@ footer .footer-end-link a {
   text-align: center;
   font-size: 1.2em;
   color: #777;
-}
+} */
 
 #categoryFilter {
   display: flex;
@@ -584,24 +603,65 @@ footer .footer-end-link a {
 }
 
 #searchinput {
-  width: 60%;
+  width: 45%;
   padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #d1d3d6;
   border-radius: 5px;
   font-size: 16px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+#searchinput::placeholder {
+  opacity: 0.5;
 }
 
 #searchinput::placeholder {
   color: #888;
 }
 
-@keyframes shimmerAnimation {
+/* @keyframes shimmerAnimation {
   0% {
     background-position: 200% 0;
   }
   100% {
     background-position: -200% 0;
+  }
+} */
+
+.category-section .image-wrapper img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.category-section .image-wrapper a {
+  border: 1px solid #d1d3d6;
+  place-content: center;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+}
+
+.shimmer {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #d1d3d6;
+  border-bottom-color: #1363df;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  font-size: 0;
+  margin: auto;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
